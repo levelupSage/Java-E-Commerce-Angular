@@ -20,7 +20,7 @@ public class Product {
 
     private String name;
 
-    private Long price;
+    private Long  price;
 
     @Lob
     private String description;

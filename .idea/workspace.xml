@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87e67e8-bed8-42d9-8e87-013170b5ff7f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/MySecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/config/MySecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/Authority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/JwtRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/JwtResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/model/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/repo/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/repo/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/repo/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/repo/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/serviceImpl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/serviceImpl/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ExamPortal/src/main/java/com/exam/serviceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartContactManager/src/main/java/com/scm/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../smartContactManager/src/main/java/com/scm/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartContactManager/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../smartContactManager/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../smartContactManager/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../smartContactManager/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/dto/pricesDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/utils/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/utils/JwtUtil.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +26,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -59,28 +50,28 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2kmezaXZj6lcgXG5kSRxs28vkAL" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ECommerceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Spring/eCommerce&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.48735633&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ECommerceApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "kapil-java",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/GitProjectJava_15092024/Java-E-Commerce-Angular",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.48735633",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.levelUp360.eCommerce.config" />
