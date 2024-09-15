@@ -22,6 +22,7 @@ public class Product {
 
     private Long  price;
 
+
     @Lob
     private String description;
 
