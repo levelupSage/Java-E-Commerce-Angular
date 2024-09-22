@@ -5,8 +5,12 @@ import com.levelUp360.eCommerce.dto.UserDto;
 import com.levelUp360.eCommerce.entity.User;
 import com.levelUp360.eCommerce.enums.UserRole;
 import com.levelUp360.eCommerce.repository.UserRepository;
+import com.levelUp360.eCommerce.utils.JwtUtil;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +21,18 @@ public class AuthServiceImpl implements AuthService{
     private UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private AuthenticationManager manager;
+
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
 
     public UserDto createUser(SignupRequest signupRequest){
         User user = new User();
         user.setEmail(signupRequest.getEmail());
         user.setName(signupRequest.getName());
-        user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));
+        user.setPassword(bCryptPasswordEncoder.encode(signupRequest.getPassword()));
         user.setRole(UserRole.CUSTOMER);
         User createdUser = userRepository.save(user);
 
@@ -45,8 +54,17 @@ public class AuthServiceImpl implements AuthService{
             user.setName("admin");
             user.setRole(UserRole.ADMIN);
            // user.setImg(null);
-            user.setPassword(new BCryptPasswordEncoder().encode("admin"));
+            user.setPassword(bCryptPasswordEncoder.encode("admin"));
             userRepository.save(user);
         }
+    }
+
+    public String verify(User users) {
+        Authentication authentication =
+                manager.authenticate(new UsernamePasswordAuthenticationToken(users.getName(), users.getPassword()));
+        if(authentication.isAuthenticated()){
+            return jwtUtil.generationToken(users.getName());
+        }
+        return "fail";
     }
 }

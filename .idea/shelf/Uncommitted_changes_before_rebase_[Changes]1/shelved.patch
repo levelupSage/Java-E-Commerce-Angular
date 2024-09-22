@@ -1,0 +1,199 @@
+Index: src/main/java/com/levelUp360/eCommerce/config/SimpleCorsFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.levelUp360.eCommerce.config;\r\n\r\nimport jakarta.servlet.*;\r\nimport jakarta.servlet.http.HttpServletRequest;\r\nimport jakarta.servlet.http.HttpServletResponse;\r\nimport org.springframework.beans.factory.annotation.Value;\r\nimport org.springframework.core.Ordered;\r\nimport org.springframework.core.annotation.Order;\r\nimport org.springframework.stereotype.Component;\r\n\r\nimport java.io.File;\r\nimport java.io.FileFilter;\r\nimport java.io.IOException;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\n@Component\r\n@Order(Ordered.HIGHEST_PRECEDENCE)\r\npublic class SimpleCorsFilter  implements Filter {\r\n\r\n\r\n   @Value(\"{app.client.url}\")\r\n   private String clientAppUrl = \"\";\r\n\r\n    public SimpleCorsFilter(){\r\n\r\n    }\r\n@Override\r\npublic void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException{\r\n    HttpServletResponse response = (HttpServletResponse) res;\r\n    HttpServletRequest request = (HttpServletRequest)  req;\r\n    Map<String, String> map = new HashMap<>();\r\n    String originHeader = request.getHeader(\"origin\");\r\n    response.setHeader(\"Access-Control-Allow-Origin\", originHeader);\r\n    response.setHeader(\"Access-Control-Allow-Methods\", \"POST, GET, PUT, OPTIONS, DELETE\");\r\n    response.setHeader(\"Access-Control-Max-Age\", \"3600\");\r\n    response.setHeader(\"Access-Control-Allow-Headers\", \"*\");\r\n        if(\"OPTIONS\".equalsIgnoreCase(request.getMethod())){\r\n            response.setStatus(HttpServletResponse.SC_OK);\r\n        }else{\r\n            chain.doFilter(req, res);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void init(FilterConfig filterConfig) {\r\n    }\r\n\r\n//    @Override\r\n//    public void destroy(){\r\n//    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/levelUp360/eCommerce/config/SimpleCorsFilter.java b/src/main/java/com/levelUp360/eCommerce/config/SimpleCorsFilter.java
+--- a/src/main/java/com/levelUp360/eCommerce/config/SimpleCorsFilter.java	
++++ b/src/main/java/com/levelUp360/eCommerce/config/SimpleCorsFilter.java	
+@@ -16,28 +16,29 @@
+ 
+ @Component
+ @Order(Ordered.HIGHEST_PRECEDENCE)
+-public class SimpleCorsFilter  implements Filter {
++public class SimpleCorsFilter implements Filter {
+ 
+ 
+-   @Value("{app.client.url}")
+-   private String clientAppUrl = "";
++    @Value("{app.client.url}")
++    private String clientAppUrl = "";
+ 
+-    public SimpleCorsFilter(){
++    public SimpleCorsFilter() {
+ 
+     }
+-@Override
+-public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException{
+-    HttpServletResponse response = (HttpServletResponse) res;
+-    HttpServletRequest request = (HttpServletRequest)  req;
+-    Map<String, String> map = new HashMap<>();
+-    String originHeader = request.getHeader("origin");
+-    response.setHeader("Access-Control-Allow-Origin", originHeader);
+-    response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
+-    response.setHeader("Access-Control-Max-Age", "3600");
+-    response.setHeader("Access-Control-Allow-Headers", "*");
+-        if("OPTIONS".equalsIgnoreCase(request.getMethod())){
++
++    @Override
++    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
++        HttpServletResponse response = (HttpServletResponse) res;
++        HttpServletRequest request = (HttpServletRequest) req;
++        Map<String, String> map = new HashMap<>();
++        String originHeader = request.getHeader("origin");
++        response.setHeader("Access-Control-Allow-Origin", originHeader);
++        response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
++        response.setHeader("Access-Control-Max-Age", "3600");
++        response.setHeader("Access-Control-Allow-Headers", "*");
++        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+             response.setStatus(HttpServletResponse.SC_OK);
+-        }else{
++        } else {
+             chain.doFilter(req, res);
+         }
+     }
+Index: src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.levelUp360.eCommerce.services.auth;\r\n\r\nimport com.levelUp360.eCommerce.dto.SignupRequest;\r\nimport com.levelUp360.eCommerce.dto.UserDto;\r\nimport com.levelUp360.eCommerce.entity.User;\r\nimport com.levelUp360.eCommerce.enums.UserRole;\r\nimport com.levelUp360.eCommerce.repository.UserRepository;\r\nimport jakarta.annotation.PostConstruct;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\r\nimport org.springframework.stereotype.Service;\r\n\r\n@Service\r\npublic class AuthServiceImpl implements AuthService{\r\n\r\n    @Autowired\r\n    private UserRepository userRepository;\r\n\r\n    @Autowired\r\n    private BCryptPasswordEncoder bCryptPasswordEncoder;\r\n\r\n    public UserDto createUser(SignupRequest signupRequest){\r\n        User user = new User();\r\n        user.setEmail(signupRequest.getEmail());\r\n        user.setName(signupRequest.getName());\r\n        user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));\r\n        user.setRole(UserRole.CUSTOMER);\r\n        User createdUser = userRepository.save(user);\r\n\r\n        UserDto userDto = new UserDto();\r\n        userDto.setId(createdUser.getId());\r\n        return userDto;\r\n    }\r\n\r\n    public Boolean hasUserWithEmail(String email){\r\n        return userRepository.findFirstByEmail(email).isPresent();\r\n    }\r\n\r\n    @PostConstruct\r\n    public void createAdminAccount(){\r\n        User adminAccount = userRepository.findByRole(UserRole.ADMIN);\r\n        if(null == adminAccount){\r\n            User user = new User();\r\n            user.setEmail(\"admin@test.com\");\r\n            user.setName(\"admin\");\r\n            user.setRole(UserRole.ADMIN);\r\n           // user.setImg(null);\r\n            user.setPassword(new BCryptPasswordEncoder().encode(\"admin\"));\r\n            userRepository.save(user);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java b/src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java
+--- a/src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java	
++++ b/src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java	
+@@ -5,8 +5,12 @@
+ import com.levelUp360.eCommerce.entity.User;
+ import com.levelUp360.eCommerce.enums.UserRole;
+ import com.levelUp360.eCommerce.repository.UserRepository;
++import com.levelUp360.eCommerce.utils.JwtUtil;
+ import jakarta.annotation.PostConstruct;
+ import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.security.authentication.AuthenticationManager;
++import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
++import org.springframework.security.core.Authentication;
+ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+ import org.springframework.stereotype.Service;
+ 
+@@ -17,13 +21,18 @@
+     private UserRepository userRepository;
+ 
+     @Autowired
+-    private BCryptPasswordEncoder bCryptPasswordEncoder;
++    private JwtUtil jwtUtil;
++
++    @Autowired
++    private AuthenticationManager manager;
++
++    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
+ 
+     public UserDto createUser(SignupRequest signupRequest){
+         User user = new User();
+         user.setEmail(signupRequest.getEmail());
+         user.setName(signupRequest.getName());
+-        user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));
++        user.setPassword(bCryptPasswordEncoder.encode(signupRequest.getPassword()));
+         user.setRole(UserRole.CUSTOMER);
+         User createdUser = userRepository.save(user);
+ 
+@@ -45,8 +54,17 @@
+             user.setName("admin");
+             user.setRole(UserRole.ADMIN);
+            // user.setImg(null);
+-            user.setPassword(new BCryptPasswordEncoder().encode("admin"));
++            user.setPassword(bCryptPasswordEncoder.encode("admin"));
+             userRepository.save(user);
+         }
+     }
++
++    public String verify(User users) {
++        Authentication authentication =
++                manager.authenticate(new UsernamePasswordAuthenticationToken(users.getName(), users.getPassword()));
++        if(authentication.isAuthenticated()){
++            return jwtUtil.generationToken(users.getName());
++        }
++        return "fail";
++    }
+ }
+Index: src/main/java/com/levelUp360/eCommerce/config/WebSecurityConfiguration.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.levelUp360.eCommerce.config;\r\n\r\nimport com.levelUp360.eCommerce.filters.JwtRequestFilter;\r\nimport lombok.RequiredArgsConstructor;\r\nimport org.springframework.context.annotation.Bean;\r\nimport org.springframework.context.annotation.Configuration;\r\nimport org.springframework.security.authentication.AuthenticationManager;\r\nimport org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;\r\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\r\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\r\nimport org.springframework.security.config.http.SessionCreationPolicy;\r\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\r\nimport org.springframework.security.crypto.password.PasswordEncoder;\r\nimport org.springframework.security.web.SecurityFilterChain;\r\nimport org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;\r\n\r\n@Configuration\r\n@EnableWebSecurity\r\n@RequiredArgsConstructor\r\npublic class WebSecurityConfiguration {\r\n\r\n    private final JwtRequestFilter authFilter;\r\n\r\n    @Bean\r\n    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {\r\n        return http\r\n                .csrf(csrf -> csrf.disable())  // CSRF ko disable karna\r\n                .authorizeHttpRequests(authorize -> authorize\r\n                        .requestMatchers(\"/authenticate\", \"/sign-up\", \"/order/**\").permitAll()  // Public endpoints\r\n                        .requestMatchers(\"/api/**\").authenticated()  // Secure API endpoints\r\n                )\r\n                .sessionManagement(session -> session\r\n                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)  // Stateless session management\r\n                )\r\n                .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)  // JWT filter ko pehle lagana\r\n                .build();\r\n    }\r\n\r\n    @Bean\r\n    public PasswordEncoder passwordEncoder() {\r\n        return new BCryptPasswordEncoder();\r\n    }\r\n\r\n    @Bean\r\n    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {\r\n        return config.getAuthenticationManager();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/levelUp360/eCommerce/config/WebSecurityConfiguration.java b/src/main/java/com/levelUp360/eCommerce/config/WebSecurityConfiguration.java
+--- a/src/main/java/com/levelUp360/eCommerce/config/WebSecurityConfiguration.java	
++++ b/src/main/java/com/levelUp360/eCommerce/config/WebSecurityConfiguration.java	
+@@ -1,16 +1,20 @@
+ package com.levelUp360.eCommerce.config;
+ 
+ import com.levelUp360.eCommerce.filters.JwtRequestFilter;
++import com.levelUp360.eCommerce.services.jwt.UserDetailsServiceImpl;
+ import lombok.RequiredArgsConstructor;
++import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
+ import org.springframework.security.authentication.AuthenticationManager;
++import org.springframework.security.authentication.AuthenticationProvider;
++import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
++import org.springframework.security.config.Customizer;
+ import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+ import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+ import org.springframework.security.config.http.SessionCreationPolicy;
+ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+-import org.springframework.security.crypto.password.PasswordEncoder;
+ import org.springframework.security.web.SecurityFilterChain;
+ import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+ 
+@@ -19,26 +23,32 @@
+ @RequiredArgsConstructor
+ public class WebSecurityConfiguration {
+ 
+-    private final JwtRequestFilter authFilter;
++    @Autowired
++    private UserDetailsServiceImpl userDetailService;
++
++    @Autowired
++    private JwtRequestFilter authFilter;
+ 
+     @Bean
+     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+         return http
+                 .csrf(csrf -> csrf.disable())  // CSRF ko disable karna
+                 .authorizeHttpRequests(authorize -> authorize
+-                        .requestMatchers("/authenticate", "/sign-up", "/order/**").permitAll()  // Public endpoints
+-                        .requestMatchers("/api/**").authenticated()  // Secure API endpoints
+-                )
++                        .requestMatchers("/authenticate", "/sign-up", "/order/**").permitAll()
++                        .requestMatchers("/api/**").authenticated())
++                .httpBasic(Customizer.withDefaults())
+                 .sessionManagement(session -> session
+-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)  // Stateless session management
+-                )
+-                .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)  // JWT filter ko pehle lagana
++                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
++                .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
+                 .build();
+     }
+ 
+     @Bean
+-    public PasswordEncoder passwordEncoder() {
+-        return new BCryptPasswordEncoder();
++    public AuthenticationProvider authenticationProvider() {
++        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
++        provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
++        provider.setUserDetailsService(userDetailService);
++        return provider;
+     }
+ 
+     @Bean
+@@ -46,3 +56,5 @@
+         return config.getAuthenticationManager();
+     }
+ }
++
++
