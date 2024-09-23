@@ -4,12 +4,13 @@ package com.levelUp360.eCommerce.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
+
+import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import java.security.Key;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,8 +20,18 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    public static final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    public static final String SECRET = Base64.getEncoder().encodeToString(SECRET_KEY.getEncoded());
+    private String secretKey = "cF781A";
+
+    public JwtUtil(){
+        KeyGenerator keyGen = null;
+        try {
+            keyGen = KeyGenerator.getInstance("HmacSHA256");
+            SecretKey sk = keyGen.generateKey();
+            secretKey = Base64.getEncoder().encodeToString(sk.getEncoded());
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public String generationToken(String userName){
         Map<String, Object> claims = new HashMap<>();
@@ -29,16 +40,18 @@ public class JwtUtil {
 
     private String createToken(Map<String, Object> claims, String userName) {
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(userName)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 10000 * 68 *30))
-                .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
+                .claims()
+                .add(claims).subject(userName)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 30))
+                .and()
+                .signWith(getSignKey())
+                .compact();
     }
 
-    private Key getSignKey() {
-        byte[] byteKeys = Decoders.BASE64.decode(SECRET);
-        return Keys.hmacShaKeyFor(byteKeys);
+    private SecretKey getSignKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     public String extractUserName(String token){
@@ -51,16 +64,10 @@ public class JwtUtil {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody();
-       // return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
-//        Claims claims = null;
-//        try {
-//            claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
-//            System.out.println("Claims: " + claims);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
+        return Jwts.parser().verifyWith(getSignKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     private Boolean  isTokenExpired(String token){
@@ -76,10 +83,4 @@ public class JwtUtil {
         final String userName = extractUserName(token);
         return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
-
-
-
-
-
-
 }
