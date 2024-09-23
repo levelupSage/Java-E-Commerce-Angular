@@ -27,5 +27,6 @@ public class User {
     @Column(name = "img", columnDefinition = "bytea")
     private byte[] img;
 
+
 }
 
