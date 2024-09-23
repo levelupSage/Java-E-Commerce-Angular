@@ -1,0 +1,90 @@
+Index: src/main/java/com/levelUp360/eCommerce/entity/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.levelUp360.eCommerce.entity;\r\n\r\nimport com.levelUp360.eCommerce.enums.UserRole;\r\nimport jakarta.persistence.*;\r\nimport lombok.Data;\r\nimport lombok.NoArgsConstructor;\r\n\r\n@Entity\r\n@Data\r\n@NoArgsConstructor\r\n@Table(name=\"users\", schema = \"ecommerce\")\r\npublic class User {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n\r\n    private String name;\r\n\r\n    private String email;\r\n\r\n    private String password;\r\n\r\n    private UserRole role;\r\n\r\n//    @Lob\r\n//    @Column(name = \"img\", columnDefinition = \"bytea\")\r\n//    private byte[] img;\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/levelUp360/eCommerce/entity/User.java b/src/main/java/com/levelUp360/eCommerce/entity/User.java
+--- a/src/main/java/com/levelUp360/eCommerce/entity/User.java	(revision 943e271cee2e9a1cefd295e1036ba7b9c1c97d33)
++++ b/src/main/java/com/levelUp360/eCommerce/entity/User.java	(date 1727066923475)
+@@ -27,5 +27,6 @@
+ //    @Column(name = "img", columnDefinition = "bytea")
+ //    private byte[] img;
+ 
++
+ }
+ 
+Index: src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.levelUp360.eCommerce.utils;\r\n\r\nimport io.jsonwebtoken.Claims;\r\nimport io.jsonwebtoken.Jwts;\r\nimport io.jsonwebtoken.io.Decoders;\r\nimport io.jsonwebtoken.security.Keys;\r\nimport org.springframework.security.core.userdetails.UserDetails;\r\nimport org.springframework.stereotype.Component;\r\n\r\nimport javax.crypto.KeyGenerator;\r\nimport javax.crypto.SecretKey;\r\nimport java.security.NoSuchAlgorithmException;\r\nimport java.util.Base64;\r\nimport java.util.Date;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.function.Function;\r\n\r\n@Component\r\npublic class JwtUtil {\r\n\r\n    private String secretKey = \"cF781A\";\r\n\r\n    public JwtUtil(){\r\n        KeyGenerator keyGen = null;\r\n        try {\r\n            keyGen = KeyGenerator.getInstance(\"HmacSHA256\");\r\n            SecretKey sk = keyGen.generateKey();\r\n            secretKey = Base64.getEncoder().encodeToString(sk.getEncoded());\r\n        } catch (NoSuchAlgorithmException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n    public String generationToken(String userName){\r\n        Map<String, Object> claims = new HashMap<>();\r\n        return createToken(claims, userName);\r\n    }\r\n\r\n    private String createToken(Map<String, Object> claims, String userName) {\r\n        return Jwts.builder()\r\n                .claims()\r\n                .add(claims).subject(userName)\r\n                .issuedAt(new Date(System.currentTimeMillis()))\r\n                .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 30))\r\n                .and()\r\n                .signWith(getSignKey())\r\n                .compact();\r\n    }\r\n\r\n    private SecretKey getSignKey() {\r\n        byte[] keyBytes = Decoders.BASE64.decode(secretKey);\r\n        return Keys.hmacShaKeyFor(keyBytes);\r\n    }\r\n\r\n    public String extractUserName(String token){\r\n        return extractClaims(token, Claims::getSubject);\r\n    }\r\n\r\n    private <T> T extractClaims(String token, Function<Claims, T> claimsResolver) {\r\n       final Claims claims = extractAllClaims(token);\r\n       return claimsResolver.apply(claims);\r\n    }\r\n\r\n    private Claims extractAllClaims(String token) {\r\n        return Jwts.parser().verifyWith(getSignKey())\r\n                .build()\r\n                .parseSignedClaims(token)\r\n                .getPayload();\r\n    }\r\n\r\n    private Boolean  isTokenExpired(String token){\r\n        return extractExpiration(token).before(new Date());\r\n    }\r\n\r\n    private Date extractExpiration(String token) {\r\n        return extractClaims(token, Claims::getExpiration);\r\n\r\n    }\r\n\r\n    public Boolean validationToken(String token, UserDetails userDetails){\r\n        final String userName = extractUserName(token);\r\n        return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java b/src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java
+--- a/src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java	(revision 943e271cee2e9a1cefd295e1036ba7b9c1c97d33)
++++ b/src/main/java/com/levelUp360/eCommerce/utils/JwtUtil.java	(date 1727067740145)
+@@ -1,5 +1,6 @@
+ package com.levelUp360.eCommerce.utils;
+ 
++
+ import io.jsonwebtoken.Claims;
+ import io.jsonwebtoken.Jwts;
+ import io.jsonwebtoken.io.Decoders;
+Index: target/classes/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring.application.name=eCommerce\r\n\r\n\r\n\r\n#database properties\r\nspring.datasource.url = jdbc:postgresql://localhost:5432/postgres\r\nspring.jpa.properties.hibernate.default_schema = ecommerce\r\nspring.datasource.username = postgres\r\nspring.datasource.password = postgres\r\nspring.datasource.driver-class-name = org.postgresql.Driver\r\nspring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect\r\n\r\nspring.jpa.show.sql=true\r\nspring.jpa.hibernate.ddl-auto=update\r\n\r\n#spring.security.user.name = kapil\r\n#spring.security.user.password = kapil\r\n\r\napp.client.url=http://localhost:4200/login\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application.properties b/target/classes/application.properties
+--- a/target/classes/application.properties	(revision 943e271cee2e9a1cefd295e1036ba7b9c1c97d33)
++++ b/target/classes/application.properties	(date 1727067028880)
+@@ -3,7 +3,7 @@
+ 
+ 
+ #database properties
+-spring.datasource.url = jdbc:postgresql://localhost:5432/postgres
++spring.datasource.url = jdbc:postgresql://localhost:5432/Practice_DB
+ spring.jpa.properties.hibernate.default_schema = ecommerce
+ spring.datasource.username = postgres
+ spring.datasource.password = postgres
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring.application.name=eCommerce\r\n\r\n\r\n\r\n#database properties\r\nspring.datasource.url = jdbc:postgresql://localhost:5432/postgres\r\nspring.jpa.properties.hibernate.default_schema = ecommerce\r\nspring.datasource.username = postgres\r\nspring.datasource.password = postgres\r\nspring.datasource.driver-class-name = org.postgresql.Driver\r\nspring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect\r\n\r\nspring.jpa.show.sql=true\r\nspring.jpa.hibernate.ddl-auto=update\r\n\r\n#spring.security.user.name = kapil\r\n#spring.security.user.password = kapil\r\n\r\napp.client.url=http://localhost:4200/login\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 943e271cee2e9a1cefd295e1036ba7b9c1c97d33)
++++ b/src/main/resources/application.properties	(date 1727066923519)
+@@ -3,7 +3,7 @@
+ 
+ 
+ #database properties
+-spring.datasource.url = jdbc:postgresql://localhost:5432/postgres
++spring.datasource.url = jdbc:postgresql://localhost:5432/Practice_DB
+ spring.jpa.properties.hibernate.default_schema = ecommerce
+ spring.datasource.username = postgres
+ spring.datasource.password = postgres
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"temurin-21\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 943e271cee2e9a1cefd295e1036ba7b9c1c97d33)
++++ b/.idea/misc.xml	(date 1727066959550)
+@@ -8,5 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
