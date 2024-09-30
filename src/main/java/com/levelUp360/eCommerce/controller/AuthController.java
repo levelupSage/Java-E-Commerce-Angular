@@ -43,7 +43,7 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    public static final String TOKEN_PREFIX = "Bearer";
+    public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
 
     @PostMapping("/authenticate")
@@ -61,6 +61,7 @@ public class AuthController {
             repoResponse.getWriter().write(new JSONObject()
                     .put("UserId", optionalUser.get().getId())
                     .put("role", optionalUser.get().getRole())
+                    .put("token", jwt)
                     .toString());
         }
 
