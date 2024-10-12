@@ -62,5 +62,6 @@ public class User implements UserDetails {
 //    @Column(name = "img", columnDefinition = "bytea")
 //    private byte[] img;
 
+
 }
 
