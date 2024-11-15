@@ -1,5 +1,6 @@
 package com.levelUp360.eCommerce.entity;
 
+import com.levelUp360.eCommerce.dto.ProductDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,4 +35,15 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Category category;
+
+    public ProductDto getDto(){
+        ProductDto productDto = new ProductDto();
+        productDto.setId(id);
+        productDto.setName(name);
+        productDto.setPrice(price);
+        productDto.setDescription(description);
+        productDto.setImg(img);
+        productDto.setCategoryId(category.getId());
+        return productDto;
+    }
 }
