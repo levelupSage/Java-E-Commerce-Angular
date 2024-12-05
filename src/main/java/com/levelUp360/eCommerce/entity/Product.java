@@ -2,14 +2,13 @@ package com.levelUp360.eCommerce.entity;
 
 import com.levelUp360.eCommerce.dto.ProductDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product", schema = "ecommerce")
@@ -22,7 +21,6 @@ public class Product {
     private String name;
 
     private Long  price;
-
 
     @Lob
     private String description;

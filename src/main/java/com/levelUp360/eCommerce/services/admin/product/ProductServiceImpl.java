@@ -6,6 +6,8 @@ import com.levelUp360.eCommerce.entity.Product;
 import com.levelUp360.eCommerce.repository.CategoryRepository;
 import com.levelUp360.eCommerce.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -16,22 +18,30 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductServiceImpl  implements ProductService{
 
+    static Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
+
     private final ProductRepository productRepository;
 
     private final CategoryRepository categoryRepository;
 
     @Override
     public ProductDto addProduct(ProductDto productDto) throws IOException {
-        Product product = new Product();
-        product.setName(productDto.getName());
-        product.setPrice(productDto.getPrice());
-        product.setDescription(productDto.getDescription());
-        product.setImg(productDto.getFile().getBytes());
+        try {
+            Product product = new Product();
+            product.setName(productDto.getName());
+            product.setPrice(productDto.getPrice());
+            product.setDescription(productDto.getDescription());
+            product.setImg(productDto.getFile().getBytes());
 
-        Category category = categoryRepository.findById(productDto.getCategoryId()).orElseThrow();
-        product.setCategory(category);
+            Category category = categoryRepository.findById(productDto.getCategoryId()).orElseThrow();
+            product.setCategory(category);
 
-        return productRepository.save(product).getDto();
+            return productRepository.save(product).getDto();
+
+        } catch (Exception e) {
+            logger.error("Exception Occured : ", e.getMessage(), e);
+            return null;
+        }
     }
 
     public List<ProductDto> getAllProducts(){
