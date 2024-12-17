@@ -17,7 +17,7 @@ public class AdminProductController {
 
     private final ProductService productService;
 
-@PostMapping("/product")
+    @PostMapping("/product")
     public ResponseEntity<ProductDto> addProduct(@ModelAttribute ProductDto productDto) throws IOException {
         ProductDto productDto1 = productService.addProduct(productDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(productDto1);

@@ -53,7 +53,7 @@ public class AuthServiceImpl implements AuthService{
             user.setEmail("admin@test.com");
             user.setName("admin");
             user.setRole(UserRole.ADMIN);
-           // user.setImg(null);
+            user.setImg(null);
             user.setPassword(bCryptPasswordEncoder.encode("admin"));
             userRepository.save(user);
         }
