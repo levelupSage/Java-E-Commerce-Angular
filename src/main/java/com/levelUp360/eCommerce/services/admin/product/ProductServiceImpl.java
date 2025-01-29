@@ -45,7 +45,23 @@ public class ProductServiceImpl  implements ProductService{
     }
 
     public List<ProductDto> getAllProducts(){
-       List<Product> product = productRepository.findAll();
-       return product.stream().map(Product::getDto).collect(Collectors.toList());
+        try{
+            List<Product> product = productRepository.findAll();
+            return product.stream().map(Product::getDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            logger.error("Something Went Wrong.....Please check your All Product" + e.getMessage(), e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<ProductDto> getAllProductByName(String name) {
+        try {
+            List<Product> obj = productRepository.findAllByNameContaining(name);
+            return obj.stream().map(Product::getDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            logger.error("Something Went Wrong.....Please check your All Product By Name" + e.getMessage());
+            return null;
+        }
     }
 }
