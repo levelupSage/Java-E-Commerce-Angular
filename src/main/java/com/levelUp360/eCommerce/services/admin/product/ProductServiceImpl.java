@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class ProductServiceImpl  implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     static Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
@@ -44,8 +45,9 @@ public class ProductServiceImpl  implements ProductService{
         }
     }
 
-    public List<ProductDto> getAllProducts(){
-        try{
+    @Override
+    public List<ProductDto> getAllProducts() {
+        try {
             List<Product> product = productRepository.findAll();
             return product.stream().map(Product::getDto).collect(Collectors.toList());
         } catch (Exception e) {
@@ -55,7 +57,7 @@ public class ProductServiceImpl  implements ProductService{
     }
 
     @Override
-    public List<ProductDto> getAllProductByName(String name) {
+    public List<ProductDto> getAllProductsByName(String name) {
         try {
             List<Product> obj = productRepository.findAllByNameContaining(name);
             return obj.stream().map(Product::getDto).collect(Collectors.toList());
@@ -64,4 +66,21 @@ public class ProductServiceImpl  implements ProductService{
             return null;
         }
     }
+
+    @Override
+    public Boolean deleteProduct(Long id) {
+        try {
+            Optional<Product> product = productRepository.findById(id);
+            if (product.isPresent()) {
+                productRepository.deleteById(id);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return false;
+        }
+    }
+
 }
