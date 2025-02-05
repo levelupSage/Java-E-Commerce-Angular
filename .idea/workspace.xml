@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87e67e8-bed8-42d9-8e87-013170b5ff7f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/customer/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/customer/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/dto/AddProductInCartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/entity/CartItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/enums/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/repository/CartItemsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/customerProduct/CustomerProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/customerProduct/CustomerProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/admin/AdminProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/admin/AdminProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/product/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/product/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/admin/AdminCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/admin/AdminCategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/auth/AuthServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,23 +86,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ECommerceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [clean,verify,sonar:sonar...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [sonar:sonar].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kapil-new-branch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/E-Commerce/New Branch/Java-E-Commerce-Angular&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.48735633&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ECommerceApplication.executor": "Debug",
+    "Maven.eCommerce [clean,verify,sonar:sonar...].executor": "Run",
+    "Maven.eCommerce [sonar:sonar].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "kapil-new-branch",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/E-Commerce/New Branch/Java-E-Commerce-Angular",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.48735633",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.levelUp360.eCommerce.config" />
@@ -136,19 +149,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java</url>
           <line>39</line>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/product/ProductServiceImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
