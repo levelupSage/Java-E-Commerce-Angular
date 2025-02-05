@@ -23,9 +23,10 @@ public class User {
 
     private UserRole role;
 
-//    @Lob
-//    @Column(name = "img", columnDefinition = "bytea")
-//    private byte[] img;
+    @Lob
+    @Column(columnDefinition = "longblob")
+    private byte[] img;
+
 
 }
 
