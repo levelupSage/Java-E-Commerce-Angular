@@ -1,6 +1,8 @@
 package com.levelUp360.eCommerce.services.customer.cart;
 
 import com.levelUp360.eCommerce.dto.AddProductInCartDto;
+import com.levelUp360.eCommerce.dto.CartItemsDto;
+import com.levelUp360.eCommerce.dto.OrderDto;
 import com.levelUp360.eCommerce.entity.CartItems;
 import com.levelUp360.eCommerce.entity.Order;
 import com.levelUp360.eCommerce.entity.Product;
@@ -16,7 +18,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -35,18 +39,18 @@ public class CartServiceImpl implements CartService {
     private ProductRepository productRepository;
 
     @Override
-    public ResponseEntity<?> addProductToCart(AddProductInCartDto addProductInCartDto){
+    public ResponseEntity<?> addProductToCart(AddProductInCartDto addProductInCartDto) {
         Order activeOrder = orderRepository.findByUserIdAndOrderStatus(addProductInCartDto.getUserId(), OrderStatus.Pending);
         Optional<CartItems> optionalCartItems = cartItemsRepository.findByProductIdAndUserIdAndOrderId
                 (addProductInCartDto.getProductId(), activeOrder.getId(), addProductInCartDto.getUserId());
 
-        if(optionalCartItems.isPresent()){
+        if (optionalCartItems.isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
-        }else{
+        } else {
             Optional<Product> optionalProduct = productRepository.findById(addProductInCartDto.getProductId());
             Optional<User> optionalUser = userRepository.findById(addProductInCartDto.getUserId());
 
-            if(optionalProduct.isPresent() && optionalUser.isPresent()){
+            if (optionalProduct.isPresent() && optionalUser.isPresent()) {
                 CartItems cartItems = new CartItems();
                 cartItems.setProduct(optionalProduct.get());
                 cartItems.setPrice(optionalProduct.get().getPrice());
@@ -63,10 +67,23 @@ public class CartServiceImpl implements CartService {
                 orderRepository.save(activeOrder);
 
                 return ResponseEntity.status(HttpStatus.CREATED).body(cartItems);
-            }else{
+            } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User or Product Not Found");
             }
 
         }
+    }
+
+    public OrderDto getCartByUserId(Long userId) {
+        Order activeOrder = orderRepository.findByUserIdAndOrderStatus(userId, OrderStatus.Pending);
+        List<CartItemsDto> cartItemsDtoList = activeOrder.getCartItems().stream().map(CartItems::getCartDto).collect(Collectors.toList());
+        OrderDto orderDto = new OrderDto();
+        orderDto.setAmount(activeOrder.getAmount());
+        orderDto.setId(activeOrder.getId());
+        orderDto.setOrderStatus(activeOrder.getOrderStatus());
+        orderDto.setDiscount(activeOrder.getDiscount());
+        orderDto.setTotalAmount(activeOrder.getTotalAmount());
+        orderDto.setCartItemsDto(cartItemsDtoList);
+        return orderDto;
     }
 }
