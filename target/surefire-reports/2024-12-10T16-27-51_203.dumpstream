@@ -1,5 +1,0 @@
-# Created at 2024-12-10T16:27:51.430
-Boot Manifest-JAR contains absolute paths in classpath 'D:\E-Commerce\New Branch\Java-E-Commerce-Angular\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-

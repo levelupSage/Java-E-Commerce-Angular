@@ -1,27 +1,41 @@
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\ECommerceApplication.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\AuthenticationRequest.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\User.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\product\ProductService.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\product\ProductServiceImpl.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\SignupRequest.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\auth\AuthServiceImpl.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\config\WebSecurityConfiguration.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\filters\JwtRequestFilter.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\CategoryRepository.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\UserRepository.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\auth\AuthService.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\enums\UserRole.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\admin\AdminProductController.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\Category.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\ProductDto.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\CategoryDto.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\ProductRepository.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\category\CategoryServiceImpl.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\config\SimpleCorsFilter.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\AuthController.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\category\CategoryService.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\admin\AdminCategoryController.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\UserDto.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\jwt\UserDetailsServiceImpl.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\utils\JwtUtil.java
-D:\E-Commerce\New Branch\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\Product.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\AuthenticationRequest.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\CartItems.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\category\CategoryServiceImpl.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\enums\OrderStatus.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\category\CategoryService.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\Order.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\admin\AdminCategoryController.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\ProductRepository.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\OrderRepository.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\customer\cart\CartServiceImpl.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\config\SimpleCorsFilter.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\customer\CustomerController.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\customer\CartController.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\enums\UserRole.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\product\ProductServiceImpl.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\ProductDto.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\admin\product\ProductService.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\admin\AdminProductController.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\utils\JwtUtil.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\UserDto.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\customer\cart\CartService.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\Category.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\AddProductInCartDto.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\config\WebSecurityConfiguration.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\jwt\UserDetailsServiceImpl.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\ECommerceApplication.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\controller\AuthController.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\CategoryDto.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\CategoryRepository.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\customer\customerProduct\CustomerProductService.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\customer\customerProduct\CustomerProductServiceImpl.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\UserRepository.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\filters\JwtRequestFilter.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\auth\AuthService.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\User.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\CartItemsDto.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\SignupRequest.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\services\auth\AuthServiceImpl.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\dto\OrderDto.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\repository\CartItemsRepository.java
+D:\E-Commerce\Java-E-Commerce-Angular\src\main\java\com\levelUp360\eCommerce\entity\Product.java
