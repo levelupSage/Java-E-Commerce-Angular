@@ -5,63 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87e67e8-bed8-42d9-8e87-013170b5ff7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/Exception/ValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminCouponController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/dto/CouponDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/entity/Coupon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/repository/CouponRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/coupon/AdminCouponService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/admin/coupon/AdminCouponServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.factorypath" beforeDir="false" afterPath="$PROJECT_DIR$/.factorypath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminCouponController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminCouponController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.levelUp360/eCommerce/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.levelUp360/eCommerce/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/ECommerceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/ECommerceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/config/SimpleCorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/config/SimpleCorsFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/config/WebSecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/config/WebSecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/customer/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/customer/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/AuthenticationRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/AuthenticationRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/CategoryDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/CategoryDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/ProductDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/SignupRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/SignupRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/CartItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/CartItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/enums/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/enums/UserRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/filters/JwtRequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/filters/JwtRequestFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/repository/CategoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/repository/CategoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/repository/ProductRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/category/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/category/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/category/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/admin/category/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/auth/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/auth/AuthService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/jwt/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/jwt/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/utils/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/utils/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/eCommerce-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/eCommerce-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/eCommerce-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/eCommerce-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sonar/.sonar_lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2024-12-10T16-27-51_203.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.levelUp360.eCommerce.ECommerceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.levelUp360.eCommerce.ECommerceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.levelUp360.eCommerce.ECommerceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.levelUp360.eCommerce.ECommerceApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/levelUp360/eCommerce/ECommerceApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/levelUp360/eCommerce/ECommerceApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,29 +74,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ECommerceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [clean,spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [clean,verify,sonar:sonar...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [clean:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [sonar:sonar].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eCommerce [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kapil-new-branch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/E-Commerce/Java-E-Commerce-Angular&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.48735633&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ECommerceApplication.executor": "Debug",
+    "Maven.eCommerce [clean,spring-boot:run].executor": "Run",
+    "Maven.eCommerce [clean,verify,sonar:sonar...].executor": "Run",
+    "Maven.eCommerce [clean:clean].executor": "Run",
+    "Maven.eCommerce [install].executor": "Run",
+    "Maven.eCommerce [sonar:sonar].executor": "Run",
+    "Maven.eCommerce [spring-boot:run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "kapil-new-branch",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/E-Commerce/Java-E-Commerce-Angular",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.48735633",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.levelUp360.eCommerce.config" />
@@ -198,6 +144,15 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminCouponController.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.levelUp360.eCommerce.entity.CartItems" memberName="price" />
