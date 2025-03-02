@@ -1,5 +1,6 @@
 package com.levelUp360.eCommerce.controller.customer;
 
+import com.levelUp360.eCommerce.Exception.ValidationException;
 import com.levelUp360.eCommerce.dto.AddProductInCartDto;
 import com.levelUp360.eCommerce.dto.OrderDto;
 import com.levelUp360.eCommerce.services.customer.cart.CartService;
@@ -24,5 +25,26 @@ public class CartController {
     public ResponseEntity<?> addCartByUserId(@PathVariable Long userId) {
         OrderDto orderDto = cartService.getCartByUserId(userId);
         return ResponseEntity.status(HttpStatus.OK).body(orderDto);
+    }
+
+    @GetMapping("/coupon/{userId}/{code}")
+    public ResponseEntity<?> applyCoupon(@PathVariable Long userId, @PathVariable String code) {
+        try {
+            OrderDto orderDto = cartService.applyCoupon(userId, code);
+            return ResponseEntity.ok(orderDto);
+
+        } catch (ValidationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/addition")
+    public ResponseEntity<OrderDto> increaseProductQuantity(@RequestBody AddProductInCartDto addProductInCartDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(cartService.increaseProductQuantity(addProductInCartDto));
+    }
+
+    @PostMapping("/deduction")
+    public ResponseEntity<OrderDto> decreaseProductQuantity(@RequestBody AddProductInCartDto addProductInCartDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(cartService.decreaseProductQuantity(addProductInCartDto));
     }
 }

@@ -1,7 +1,9 @@
 package com.levelUp360.eCommerce.dto;
 
-import com.levelUp360.eCommerce.entity.Category;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 @Getter

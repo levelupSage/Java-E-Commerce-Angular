@@ -1,13 +1,20 @@
 package com.levelUp360.eCommerce.dto;
 
 import com.levelUp360.eCommerce.enums.OrderStatus;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderDto {
 
     private Long id;
@@ -33,4 +40,6 @@ public class OrderDto {
     private String userName;
 
     private List<CartItemsDto> cartItemsDto;
+
+    private String couponName;
 }
