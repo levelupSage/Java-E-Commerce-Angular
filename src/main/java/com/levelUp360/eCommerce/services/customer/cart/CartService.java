@@ -2,6 +2,7 @@ package com.levelUp360.eCommerce.services.customer.cart;
 
 import com.levelUp360.eCommerce.dto.AddProductInCartDto;
 import com.levelUp360.eCommerce.dto.OrderDto;
+import com.levelUp360.eCommerce.dto.PlaceOrderDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,5 @@ public interface CartService {
 
     OrderDto decreaseProductQuantity(AddProductInCartDto addProductInCartDto);
 
+    OrderDto placeOrder(PlaceOrderDto placeOrderDto);
 }

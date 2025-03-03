@@ -3,6 +3,7 @@ package com.levelUp360.eCommerce.controller.customer;
 import com.levelUp360.eCommerce.Exception.ValidationException;
 import com.levelUp360.eCommerce.dto.AddProductInCartDto;
 import com.levelUp360.eCommerce.dto.OrderDto;
+import com.levelUp360.eCommerce.dto.PlaceOrderDto;
 import com.levelUp360.eCommerce.services.customer.cart.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -47,4 +48,10 @@ public class CartController {
     public ResponseEntity<OrderDto> decreaseProductQuantity(@RequestBody AddProductInCartDto addProductInCartDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(cartService.decreaseProductQuantity(addProductInCartDto));
     }
+
+    @PostMapping("/placeOrder")
+    public ResponseEntity<OrderDto> placeOrder(@RequestBody PlaceOrderDto placeOrderDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(cartService.placeOrder(placeOrderDto));
+    }
+
 }
