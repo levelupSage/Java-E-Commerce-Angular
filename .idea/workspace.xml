@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87e67e8-bed8-42d9-8e87-013170b5ff7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/dto/PlaceOrderDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/admin/AdminOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/adminOrder/AdminOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/adminOrder/AdminOrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/customer/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/controller/customer/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/customer/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/controller/customer/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/levelUp360/eCommerce/services/customer/cart/CartServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/levelUp360/eCommerce/repository/OrderRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
