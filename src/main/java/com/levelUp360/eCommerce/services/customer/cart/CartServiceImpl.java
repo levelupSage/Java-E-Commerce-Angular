@@ -9,6 +9,8 @@ import com.levelUp360.eCommerce.entity.*;
 import com.levelUp360.eCommerce.enums.OrderStatus;
 import com.levelUp360.eCommerce.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
+
+    static Logger logger = LoggerFactory.getLogger(CartServiceImpl.class);
 
     @Autowired
     private OrderRepository orderRepository;
@@ -197,28 +201,43 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public OrderDto placeOrder(PlaceOrderDto placeOrderDto) {
-        Order activeOrder = orderRepository.findByUserIdAndOrderStatus(placeOrderDto.getUserId(), OrderStatus.Pending);
-        Optional<User> optionalUser = userRepository.findById(placeOrderDto.getUserId());
-        if (optionalUser.isPresent()) {
-            activeOrder.setOrderDescription(placeOrderDto.getOrderDescription());
-            activeOrder.setAddress(placeOrderDto.getAddress());
-            activeOrder.setDate(new Date());
-            activeOrder.setOrderStatus(OrderStatus.Placed);
-            activeOrder.setTrackingId(UUID.randomUUID());
+        try {
+            Order activeOrder = orderRepository.findByUserIdAndOrderStatus(placeOrderDto.getUserId(), OrderStatus.Pending);
+            Optional<User> optionalUser = userRepository.findById(placeOrderDto.getUserId());
+            if (optionalUser.isPresent()) {
+                activeOrder.setOrderDescription(placeOrderDto.getOrderDescription());
+                activeOrder.setAddress(placeOrderDto.getAddress());
+                activeOrder.setDate(new Date());
+                activeOrder.setOrderStatus(OrderStatus.Placed);
+                activeOrder.setTrackingId(UUID.randomUUID());
 
-            orderRepository.save(activeOrder);
+                orderRepository.save(activeOrder);
 
-            Order order = new Order();
-            order.setAmount(0L);
-            order.setTotalAmount(0L);
-            order.setDiscount(0L);
-            order.setUser(optionalUser.get());
-            order.setOrderStatus(OrderStatus.Pending);
-            orderRepository.save(order);
+                Order order = new Order();
+                order.setAmount(0L);
+                order.setTotalAmount(0L);
+                order.setDiscount(0L);
+                order.setUser(optionalUser.get());
+                order.setOrderStatus(OrderStatus.Pending);
+                orderRepository.save(order);
 
-            return activeOrder.getOrderDto();
+                return activeOrder.getOrderDto();
+            }
+
+        } catch (Exception e) {
+            logger.error("Exception Occurd" + e.getMessage());
         }
         return null;
+    }
+
+    public List<OrderDto> getMyPlacedOrders(Long userId){
+        try{
+            return orderRepository.findByUserIdAndOrderStatusIn(userId, List.of(OrderStatus.Placed, OrderStatus.Delivered,
+                    OrderStatus.Shipped)).stream().map(Order::getOrderDto).collect(Collectors.toList());
+        }catch (Exception e){
+            logger.error("Exception Occurd" + e.getMessage());
+            return null;
+        }
     }
     //-----------------------------------------
 //    @Override

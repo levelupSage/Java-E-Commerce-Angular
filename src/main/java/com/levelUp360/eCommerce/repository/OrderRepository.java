@@ -1,5 +1,6 @@
 package com.levelUp360.eCommerce.repository;
 
+import com.levelUp360.eCommerce.dto.OrderDto;
 import com.levelUp360.eCommerce.entity.Order;
 import com.levelUp360.eCommerce.enums.OrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,4 +14,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     Order findByUserIdAndOrderStatus(Long userId, OrderStatus orderStatus);
 
     List<Order> findAllByOrderStatusIn(List<OrderStatus> orderStatusList);
+
+    List<Order> findByUserIdAndOrderStatusIn(Long userId, List<OrderStatus> orderStatus);
 }
