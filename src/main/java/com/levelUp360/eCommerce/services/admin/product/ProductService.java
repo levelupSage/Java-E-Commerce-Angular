@@ -13,5 +13,9 @@ public interface ProductService {
 
     List<ProductDto> getAllProductsByName(String name);
 
-   Boolean deleteProduct(Long id);
+    Boolean deleteProduct(Long id);
+
+    ProductDto getProductId(Long productId);
+
+    ProductDto updateProduct(Long productId, ProductDto productDto);
 }

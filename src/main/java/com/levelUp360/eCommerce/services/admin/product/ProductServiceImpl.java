@@ -83,4 +83,37 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    @Override
+    public ProductDto getProductId(Long productId){
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if(optionalProduct.isPresent()){
+            return optionalProduct.get().getDto();
+        }else{
+            return null;
+        }
+    }
+
+    public ProductDto updateProduct(Long productId, ProductDto productDto){
+        try{
+            Optional<Product> optionalProduct = productRepository.findById(productId);
+            Optional<Category> optionalCategory = categoryRepository.findById(productDto.getCategoryId());
+            if(optionalProduct.isPresent() && optionalCategory.isPresent()){
+                Product product = optionalProduct.get();
+
+                product.setName(productDto.getName());
+                product.setPrice(productDto.getPrice());
+                product.setDescription(productDto.getDescription());
+                product.setCategory(optionalCategory.get());
+                if(productDto.getImg() != null){
+                    product.setImg(productDto.getFile().getBytes());
+                }
+                return productRepository.save(product).getDto();
+            }else{
+                return null;
+            }
+        } catch (Exception e) {
+            logger.error("Exception Occurd : " + e.getMessage());
+            return null;
+        }
+    }
 }
